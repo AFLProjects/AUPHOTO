@@ -39,11 +39,11 @@ int main() {
 			int count = 0;
 
 
-			std::experimental::filesystem::recursive_directory_iterator start(_path_), end;
+			std::filesystem::recursive_directory_iterator start(_path_), end;
 			for (; start != end; ++start) {
 				auto path = start->path();
 				auto full_path = path;
-				string finalpath = full_path.u8string();
+				string finalpath = full_path.generic_string();
 				if (finalpath.substr(finalpath.length() - 4) == ".png") 
 				{
 					ImageProcessing::EditImage(finalpath);
